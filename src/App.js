@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import foodData from "./foods.json";
+import FoodForm from "./components/FoodForm";
+import FoodSearch from "./components/FoodSearch";
+import FoodBox from "./components/FoodBox";
+import "./index.scss";
 
-function App() {
+export default function App() {
+  const setInitialValue = () => {
+    return foodData;
+  };
+  // useState for foods
+  const [foods, setFoods] = useState(foodData);
+  // useState for food search
+  const [foodSearch, setFoodSearch] = useState("");
+
+  // useState for food-form
+  const [image, setImage] = useState("");
+  const [name, setName] = useState("");
+  const [calories, setCalories] = useState("");
+  const [quantity, setQuantity] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>IronNutrition</h1>
+      <FoodSearch
+        foodSearch={foodSearch}
+        setFoodSearch={setFoodSearch}
+        setFoods={setFoods}
+        foods={foods}
+        setInitialValue={setInitialValue}
+      />
+      <FoodForm
+        image={image}
+        name={name}
+        calories={calories}
+        quantity={quantity}
+        setImage={setImage}
+        setName={setName}
+        setCalories={setCalories}
+        setQuantity={setQuantity}
+        setFoods={setFoods}
+      />
+      <FoodBox setFoods={setFoods} foods={foods} />
     </div>
   );
 }
-
-export default App;

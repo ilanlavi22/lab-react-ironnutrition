@@ -1,3 +1,5 @@
+<img src='/src/images/screenshot.png'>
+
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
 # LAB | React IronNutrition
@@ -91,9 +93,7 @@ You can use this HTML snippet to display properly the `FoodBox`:
           <input className="input" type="number" value="1" />
         </div>
         <div className="control">
-          <button className="button is-info">
-            +
-          </button>
+          <button className="button is-info">+</button>
         </div>
       </div>
     </div>
